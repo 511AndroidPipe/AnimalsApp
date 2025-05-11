@@ -12,6 +12,4 @@ interface AnimalsService {
     @GET("animals/{id}")
     suspend fun getAnimalById(@Path("id") id: String): Animal
 
-    @GET("environments")
-    suspend fun getEnvironments():
 }
