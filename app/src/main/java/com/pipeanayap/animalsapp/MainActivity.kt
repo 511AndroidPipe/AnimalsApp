@@ -19,12 +19,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.Navigation
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.pipeanayap.animalsapp.screens.AmbienteScreen
+import com.pipeanayap.animalsapp.screens.AnimalDetailScreen
 import com.pipeanayap.animalsapp.screens.HomeScreen
 import com.pipeanayap.animalsapp.ui.theme.AnimalsAppTheme
 
@@ -79,10 +82,20 @@ class MainActivity : ComponentActivity() {
                 { innerPadding ->
                     NavHost(navController = navController, startDestination = "Inicio"){
                         composable(route = "Inicio"){
-                            HomeScreen(innerPadding)
+                            HomeScreen(innerPadding, navController)
                         }
                         composable(route = "Ambientes"){
                             AmbienteScreen(innerPadding)
+                        }
+                        composable(
+                            route = "animal-detail/{id}",
+                            arguments = listOf(navArgument("id") {
+                                type = NavType.StringType
+                                nullable = false
+                            })
+                        ){
+                            val animalId = it.arguments?.getString("id") ?: 0
+                            AnimalDetailScreen(innerPadding, animalId.toString(), navController)
                         }
                     }
 

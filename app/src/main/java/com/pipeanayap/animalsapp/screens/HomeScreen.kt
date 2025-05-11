@@ -33,6 +33,7 @@ import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.pipeanayap.animalsapp.AnimalsService
 import com.pipeanayap.animalsapp.components.AnimalComponent
 import com.pipeanayap.animalsapp.models.Animal
@@ -43,7 +44,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 @Composable
-fun HomeScreen(paddingValues: PaddingValues) {
+fun HomeScreen(paddingValues: PaddingValues, navController: NavController) {
     var animal by remember {
         mutableStateOf(emptyList<Animal>())
     }
@@ -115,25 +116,17 @@ fun HomeScreen(paddingValues: PaddingValues) {
         // (Aquí podrías seguir con más contenido si lo deseas)
 
         Column {
-             animal.forEach{
-                AnimalComponent(
-                    animal = it,)
+             animal.forEach{ animal ->
+                 AnimalComponent(
+                    animal = animal,
+                     onClick = {selectedAnimal ->
+                         navController.navigate("animal-detail/${selectedAnimal.id}")
+                     })
+
+                }
              }
         }
     }
 
 
-}
 
-
-
-@Preview(
-
-)
-@Composable
-fun HomeScreenPreview() {
-    AnimalsAppTheme {
-        HomeScreen(paddingValues = PaddingValues(20.dp))
-
-    }
-}

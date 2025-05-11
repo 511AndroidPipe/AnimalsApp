@@ -1,6 +1,7 @@
 package com.pipeanayap.animalsapp.components
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,11 +23,12 @@ import coil3.compose.AsyncImage
 import com.pipeanayap.animalsapp.models.Animal
 
 @Composable
-fun AnimalComponent( animal : Animal) {
+fun AnimalComponent( animal : Animal, onClick : (Animal) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(32.dp),
+            .padding(32.dp)
+            .clickable { onClick(animal) },
         horizontalAlignment = Alignment.CenterHorizontally
 
     ){
