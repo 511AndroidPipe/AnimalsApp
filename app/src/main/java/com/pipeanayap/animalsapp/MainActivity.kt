@@ -28,6 +28,7 @@ import androidx.navigation.navArgument
 import com.exyte.animatednavbar.AnimatedNavigationBar
 import com.pipeanayap.animalsapp.screens.AmbienteScreen
 import com.pipeanayap.animalsapp.screens.AnimalDetailScreen
+import com.pipeanayap.animalsapp.screens.EnvironmentDetailScreen
 import com.pipeanayap.animalsapp.screens.HomeScreen
 import com.pipeanayap.animalsapp.ui.theme.AnimalsAppTheme
 
@@ -85,7 +86,7 @@ class MainActivity : ComponentActivity() {
                             HomeScreen(innerPadding, navController)
                         }
                         composable(route = "Ambientes"){
-                            AmbienteScreen(innerPadding)
+                            AmbienteScreen(innerPadding, navController)
                         }
                         composable(
                             route = "animal-detail/{id}",
@@ -96,6 +97,16 @@ class MainActivity : ComponentActivity() {
                         ){
                             val animalId = it.arguments?.getString("id") ?: 0
                             AnimalDetailScreen(innerPadding, animalId.toString(), navController)
+                        }
+                        composable(
+                            route = "environment-detail/{id}",
+                            arguments = listOf(navArgument("id") {
+                                type = NavType.StringType
+                                nullable = false
+                            })
+                        ) {
+                            val environmentId = it.arguments?.getString("id") ?: 0
+                            EnvironmentDetailScreen(innerPadding, environmentId.toString(), navController)
                         }
                     }
 
