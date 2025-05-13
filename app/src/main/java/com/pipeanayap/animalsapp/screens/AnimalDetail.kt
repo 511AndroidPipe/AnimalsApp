@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -89,6 +91,7 @@ fun AnimalDetailScreen(
                     .fillMaxSize()
                     .padding(innerPadding)
                     .padding(30.dp)
+                    .padding(top = 30.dp)
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
@@ -99,9 +102,14 @@ fun AnimalDetailScreen(
                     fontWeight = FontWeight.Bold
                 )
                 AsyncImage(
-                    modifier = Modifier.padding(top = 20.dp),
                     model = it.image,
                     contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .padding(top = 20.dp)
+                        .fillMaxWidth()
+                        .height(200.dp)
+                        .clip(RoundedCornerShape(16.dp))
                 )
                 Text(
                     text = it.description,
@@ -154,10 +162,12 @@ fun AnimalDetailScreen(
                     AsyncImage(
                         model = image,
                         contentDescription = null,
-                        contentScale = ContentScale.FillWidth, // Ajusta la imagen al tamaño definido
+                        contentScale = ContentScale.Crop, // Recorta sin deformar
                         modifier = Modifier
-                            .padding(top = 10.dp)
-                            .clip(RoundedCornerShape(16.dp)) // Bordes redondeados
+                            .padding(top = 15.dp)
+                            .fillMaxWidth()
+                            .height(200.dp) // Altura fija para uniformidad
+                            .clip(RoundedCornerShape(16.dp))
                     )
                 }
             }

@@ -72,7 +72,7 @@ fun HomeScreen(paddingValues: PaddingValues, navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
-            .padding(16.dp)
+            .padding(top = 50.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

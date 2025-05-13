@@ -101,6 +101,7 @@ fun EnvironmentDetailScreen(
                     .fillMaxSize()
                     .padding(innerPadding)
                     .padding(30.dp)
+                    .padding(top = 30.dp)
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {

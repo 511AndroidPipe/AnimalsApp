@@ -75,6 +75,7 @@ fun AmbienteScreen(paddingValues: PaddingValues, navController: NavController){
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
+            .padding(top = 50.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
