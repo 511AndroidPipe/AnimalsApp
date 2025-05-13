@@ -96,5 +96,6 @@ fun AmbienteScreen(paddingValues: PaddingValues, navController: NavController){
 
             }
         }
+        Spacer(modifier = Modifier.padding(vertical = 40.dp))
     }
 }
