@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -100,8 +101,8 @@ fun HomeScreen(paddingValues: PaddingValues, navController: NavController) {
                     contentColor = Color.Black
                 )
             ) {
-                Icon(Icons.Default.Person, contentDescription = null, tint = Color.Black)
-                Text("Agregar")
+                Icon(Icons.Default.Add, contentDescription = null, tint = Color.Black)
+                Text(modifier = Modifier.padding(start = 5.dp), text =  "Agregar")
             }
         }
 
