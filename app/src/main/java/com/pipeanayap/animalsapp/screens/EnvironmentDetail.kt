@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -37,6 +38,7 @@ import androidx.navigation.NavController
 import coil3.compose.AsyncImage
 import com.pipeanayap.animalsapp.AnimalsService
 import com.pipeanayap.animalsapp.EnvironmentService
+import com.pipeanayap.animalsapp.R
 import com.pipeanayap.animalsapp.components.AnimalComponent
 import com.pipeanayap.animalsapp.models.Animal
 import com.pipeanayap.animalsapp.models.Environment
@@ -107,6 +109,8 @@ fun EnvironmentDetailScreen(
             ) {
                 AsyncImage(
                     model = environment.image,
+                    placeholder = painterResource(R.drawable.ic_launcher_foreground),
+                    error =  painterResource(R.drawable.no_image),
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth, // Ajusta la imagen al tamaño definido
                     modifier = Modifier

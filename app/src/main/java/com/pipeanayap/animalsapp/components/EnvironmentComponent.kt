@@ -19,9 +19,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalMapOf
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.pipeanayap.animalsapp.R
 import com.pipeanayap.animalsapp.models.Animal
 
 @Composable
@@ -36,6 +38,8 @@ fun EnvironmentComponent( environment: Environment, onClick : (Environment) -> U
     ){
         AsyncImage(
             model =  environment.image,
+            placeholder = painterResource(R.drawable.ic_launcher_foreground),
+            error =  painterResource(R.drawable.no_image),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier

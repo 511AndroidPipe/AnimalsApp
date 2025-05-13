@@ -43,6 +43,8 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Icon
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.res.painterResource
+import com.pipeanayap.animalsapp.R
 
 
 @Composable
@@ -161,6 +163,8 @@ fun AnimalDetailScreen(
                 it.imageGallery.forEach { image ->
                     AsyncImage(
                         model = image,
+                        placeholder = painterResource(R.drawable.ic_launcher_foreground),
+                        error =  painterResource(R.drawable.no_image),
                         contentDescription = null,
                         contentScale = ContentScale.Crop, // Recorta sin deformar
                         modifier = Modifier
