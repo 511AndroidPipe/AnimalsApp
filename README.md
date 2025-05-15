@@ -2,7 +2,6 @@
 Este proyecto es una aplicación móvil desarrollada con Jetpack Compose que muestra una lista de animales y ambientes, obtenida de una API externa. Los usuarios pueden explorar animales y ambientes, ver detalles de cada uno, y navegar entre las pantallas usando una barra de navegación.
 
 ## Funcionalidades
----
 La aplicación cuenta con las siguientes pantallas y funcionalidades:
 
 ### 1. Pantalla de Lista de Animales
